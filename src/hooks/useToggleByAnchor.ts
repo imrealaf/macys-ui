@@ -1,14 +1,18 @@
 import { useState } from 'react'
 
-export interface IUsePopover {
-  id: string | undefined
+/**
+ * useToggleByAnchor
+ * @description utility for controlling visibility of components that are bound by an anchor element
+ */
+
+export interface IUseToggleByAnchor {
   anchorEl?: null | Element | ((element: Element) => Element)
   open: boolean
   show(event: MouseEvent): void
   hide(): void
 }
 
-function usePopover(id: string = ''): IUsePopover {
+function useToggleByAnchor(): IUseToggleByAnchor {
   const [anchorEl, setAnchorEl] = useState(null)
 
   const show = (event: MouseEvent) => {
@@ -22,7 +26,6 @@ function usePopover(id: string = ''): IUsePopover {
   const open = Boolean(anchorEl)
 
   return {
-    id: open ? id : undefined,
     anchorEl,
     open,
     show,
@@ -30,4 +33,4 @@ function usePopover(id: string = ''): IUsePopover {
   }
 }
 
-export default usePopover
+export default useToggleByAnchor

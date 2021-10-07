@@ -2,31 +2,29 @@ import {
   Box,
   AppBar,
   List,
-  ListItem,
-  ListItemText,
-  Typography,
-  Button,
   Toolbar,
-  Container,
   IconButton,
-  Grid
+  Menu,
+  MenuItem
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
+import MoreIcon from '@mui/icons-material/MoreVert'
 
-import { ResponsiveDrawer, ResponsiveLayout, useToggle } from 'macys-ui'
+import {
+  ResponsiveDrawer,
+  ResponsiveLayout,
+  useToggle,
+  useToggleByAnchor
+} from 'macys-ui'
+
+import Routes, { routesList } from 'router'
+import navigation from 'data/navigation.json'
+import ListItemLink from 'ListItemLink'
 import Logo from './Logo'
 
 function App() {
   const drawer = useToggle()
-
-  const menu = [
-    {
-      title: 'Example List Item'
-    },
-    {
-      title: 'Another List Item'
-    }
-  ]
+  const dropdown = useToggleByAnchor()
 
   return (
     <>
@@ -49,6 +47,21 @@ function App() {
               <MenuIcon />
             </IconButton>
             <Logo />
+            <IconButton
+              size='large'
+              edge='end'
+              onClick={dropdown.show}
+              sx={{ marginLeft: 'auto' }}
+            >
+              <MoreIcon />
+            </IconButton>
+            <Menu
+              anchorEl={dropdown.anchorEl}
+              open={dropdown.open}
+              onClose={dropdown.hide}
+            >
+              <MenuItem>Dropdown item 1</MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
 
@@ -60,75 +73,18 @@ function App() {
               onOpen={() => {}}
             >
               <List sx={{ py: 3 }}>
-                {menu.map((item, i) => (
-                  <ListItem button key={i}>
-                    <ListItemText primary={item.title} />
-                  </ListItem>
+                {navigation.map((item, i) => (
+                  <ListItemLink
+                    key={i}
+                    to={item.url}
+                    primary={item.title}
+                  ></ListItemLink>
                 ))}
               </List>
             </ResponsiveDrawer>
           }
         >
-          <Container
-            maxWidth={false}
-            sx={{
-              p: 3
-            }}
-          >
-            <Typography variant='h4' sx={{ mb: 2 }}>
-              Page Title
-            </Typography>
-
-            <Typography variant='h6' sx={{ mb: 2 }}>
-              Buttons
-            </Typography>
-
-            <Grid container spacing={2} sx={{ mb: 2 }}>
-              <Grid item>
-                <Button>Primary</Button>
-              </Grid>
-              <Grid item>
-                <Button disabled>Disabled</Button>
-              </Grid>
-            </Grid>
-
-            <Grid container spacing={2} sx={{ mb: 2 }}>
-              <Grid item>
-                <Button variant='outlined'>Outlined</Button>
-              </Grid>
-              <Grid item>
-                <Button variant='outlined' disabled>
-                  Disabled
-                </Button>
-              </Grid>
-            </Grid>
-
-            <Grid container spacing={2} sx={{ mb: 2 }}>
-              <Grid item>
-                <Button color='secondary'>Secondary</Button>
-              </Grid>
-              <Grid item>
-                <Button color='secondary' disabled>
-                  Disabled
-                </Button>
-              </Grid>
-            </Grid>
-
-            <Grid container spacing={2} sx={{ mb: 2 }}>
-              <Grid item>
-                <Button color='info'>Info</Button>
-              </Grid>
-              <Grid item>
-                <Button color='success'>Success</Button>
-              </Grid>
-              <Grid item>
-                <Button color='warning'>Warning</Button>
-              </Grid>
-              <Grid item>
-                <Button color='error'>Error</Button>
-              </Grid>
-            </Grid>
-          </Container>
+          <Routes routes={routesList} />
         </ResponsiveLayout>
       </Box>
     </>

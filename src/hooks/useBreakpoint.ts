@@ -4,9 +4,9 @@ import { useTheme, useMediaQuery } from '@mui/material'
  * useBreakpoint
  * @description utility for getting current breakpoint
  */
+
 function useBreakpoint(): Record<string, boolean> {
   const theme = useTheme()
-
   return {
     xs: useMediaQuery(theme.breakpoints.only('xs')),
     sm: useMediaQuery(theme.breakpoints.only('sm')),

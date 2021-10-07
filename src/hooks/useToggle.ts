@@ -1,5 +1,10 @@
 import { useState } from 'react'
 
+/**
+ * useToggle
+ * @description utility for controlling visibility of components
+ */
+
 export interface IUseToggle {
   id?: string | null
   open: boolean

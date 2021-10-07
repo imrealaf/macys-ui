@@ -2,7 +2,7 @@
 export { ResponsiveDrawer, ResponsiveLayout } from 'components'
 
 // Hooks
-export { useToggle, usePopover, useBreakpoint } from 'hooks'
+export { useToggle, useToggleByAnchor, useBreakpoint } from 'hooks'
 
 // Theme
 export { AppBarHeight, DrawerWidth } from 'theme/sizes'
