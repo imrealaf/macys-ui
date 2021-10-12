@@ -9,6 +9,7 @@ import {
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import MoreIcon from '@mui/icons-material/MoreVert'
+import { Link } from 'react-router-dom'
 
 import {
   ResponsiveDrawer,
@@ -46,7 +47,9 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
-            <Logo />
+            <Link to='/'>
+              <Logo />
+            </Link>
             <IconButton
               size='large'
               edge='end'

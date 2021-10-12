@@ -1,4 +1,6 @@
-import { createTheme } from '@mui/material'
+import { ThemeOptions } from '@mui/material'
+import spacing from '../theme/spacing'
+import { ShadowColor } from '../theme/shadows'
 import {
   Colors,
   BackgroundColors,
@@ -6,13 +8,11 @@ import {
   ButtonTextColors,
   InlineButtonColors,
   InlineButtonTextColors,
-  ShadowColor,
   TextColors,
   ContrastTextColors
-} from './colors'
-import { FontFamily } from './typography'
+} from './colors.macys'
 
-const theme = createTheme({
+const themeConfig: ThemeOptions = {
   shape: {
     borderRadius: 0
   },
@@ -38,8 +38,11 @@ const theme = createTheme({
       main: Colors.success
     }
   },
+  spacing,
   typography: {
-    fontFamily: FontFamily
+    fontFamily: ['"Helvetica Neue"', 'Arial', 'Helvetica', 'sans-serif'].join(
+      ','
+    )
   },
   components: {
     MuiAppBar: {
@@ -118,6 +121,6 @@ const theme = createTheme({
       ]
     }
   }
-})
+}
 
-export default theme
+export default themeConfig

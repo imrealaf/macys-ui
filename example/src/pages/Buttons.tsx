@@ -11,7 +11,10 @@ import {
 function Buttons() {
   return (
     <>
-      <Container sx={{ p: 3 }}>
+      <Container maxWidth={false} sx={{ p: 3 }}>
+        <Typography variant='h2' sx={{ mb: 3 }}>
+          Buttons
+        </Typography>
         <Box sx={{ mb: 4 }}>
           <Typography variant='h5' sx={{ mb: 2 }}>
             Button variants
