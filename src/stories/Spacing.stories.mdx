@@ -1,0 +1,43 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Box } from '@mui/material'
+
+<Meta
+  title='Spacing'
+  decorators={[
+    (Story) => (
+      <Box
+        component='span'
+        sx={{ display: 'inline-block', border: '1px solid grey' }}
+      >
+        <Story />
+      </Box>
+    )
+  ]}
+/>
+
+# Spacings
+
+<Canvas>
+  <Story name='XXS'>
+    <Box p={1}>XXS</Box>
+  </Story>
+  <Story name='XS'>
+    <Box p={2}>XS</Box>
+  </Story>
+  <Story name='S'>
+    <Box p={3}>S</Box>
+  </Story>
+  <Story name='M'>
+    <Box p={4}>M</Box>
+  </Story>
+  <Story name='L'>
+    <Box p={5}>L</Box>
+  </Story>
+  <Story name='XL'>
+    <Box p={6}>XL</Box>
+  </Story>
+  <Story name='XXL'>
+    <Box p={7}>XXL</Box>
+  </Story>
+</Canvas>

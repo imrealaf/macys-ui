@@ -1,13 +1,12 @@
 import { ThemeOptions } from '@mui/material'
 import spacing from '../theme/spacing'
 import { ShadowColor } from '../theme/shadows'
+import typography from './typography.macys'
 import {
   Colors,
   BackgroundColors,
   ButtonColors,
   ButtonTextColors,
-  InlineButtonColors,
-  InlineButtonTextColors,
   TextColors,
   ContrastTextColors
 } from './colors.macys'
@@ -39,11 +38,7 @@ const themeConfig: ThemeOptions = {
     }
   },
   spacing,
-  typography: {
-    fontFamily: ['"Helvetica Neue"', 'Arial', 'Helvetica', 'sans-serif'].join(
-      ','
-    )
-  },
+  typography,
   components: {
     MuiAppBar: {
       styleOverrides: {
@@ -62,7 +57,7 @@ const themeConfig: ThemeOptions = {
     MuiButton: {
       defaultProps: {
         variant: 'contained',
-        disableElevation: false
+        disableElevation: true
       },
       variants: [
         {
@@ -83,9 +78,10 @@ const themeConfig: ThemeOptions = {
           }
         },
         {
-          props: { variant: 'outlined', color: 'primary' },
+          props: { variant: 'contained', color: 'secondary' },
           style: {
-            borderColor: ButtonColors.active,
+            backgroundColor: 'transparent',
+            border: `1px solid ${ButtonColors.active}`,
             color: ButtonColors.active,
             ':hover': {
               borderColor: ContrastTextColors.low,
@@ -98,23 +94,6 @@ const themeConfig: ThemeOptions = {
             ':disabled': {
               borderColor: ButtonColors.disabled,
               color: ButtonTextColors.disabled
-            }
-          }
-        },
-        {
-          props: { variant: 'contained', color: 'secondary' },
-          style: {
-            backgroundColor: InlineButtonColors.active,
-            color: InlineButtonTextColors.active,
-            ':hover': {
-              backgroundColor: InlineButtonColors.hover
-            },
-            ':focus': {
-              backgroundColor: InlineButtonColors.focus
-            },
-            ':disabled': {
-              backgroundColor: InlineButtonColors.disabled,
-              color: InlineButtonTextColors.disabled
             }
           }
         }

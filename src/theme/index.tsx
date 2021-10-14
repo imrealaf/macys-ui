@@ -2,6 +2,12 @@ import React from 'react'
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material'
 import themes from '../themes'
 
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    tertiary: true
+  }
+}
+
 type ThemeVariant = 'macys' | 'bloomingdales' // default macys theme (more tbd)
 
 interface IThemeProps {

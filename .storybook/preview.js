@@ -2,7 +2,7 @@ import Theme from '../src/theme'
 
 export const decorators = [
   (Story) => (
-    <Theme>
+    <Theme variant={process.env.STORYBOOK_THEME}>
       <Story />
     </Theme>
   )

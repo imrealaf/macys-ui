@@ -9,8 +9,8 @@ export type ThemeVariant =
   | 'critical'
 
 export enum Colors {
-  primary = '#1274b7',
-  secondary = '#303030',
+  primary = '#E01A2B',
+  secondary = '#AB0000',
   success = '#008757',
   info = '#374ea0',
   important = '#ffc627',
@@ -73,6 +73,13 @@ export enum ButtonColors {
   hover = '#626369',
   active = '#000000',
   focus = '#0b4872'
+}
+
+export enum TertiaryButtonColors {
+  disabled = '#e6e6e6',
+  hover = '#E01A2B',
+  active = '#E01A2B',
+  focus = '#E01A2B'
 }
 
 export enum InlineButtonColors {

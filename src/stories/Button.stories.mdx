@@ -1,29 +1,13 @@
 import { action } from '@storybook/addon-actions'
-import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Button } from '@mui/material'
 
 <Meta
   title='Buttons'
   component={Button}
   argTypes={{
-    variant: {
-      name: 'Variant',
-      defaultValue: 'contained',
-      options: ['contained', 'outlined'],
-      control: {
-        type: 'inline-radio'
-      }
-    },
-    color: {
-      name: 'Color',
-      options: ['primary', 'secondary'],
-      control: {
-        type: 'select'
-      }
-    },
     size: {
       name: 'Size',
-      defaultValue: 'medium',
       options: ['small', 'medium', 'large'],
       control: {
         type: 'inline-radio'
@@ -35,25 +19,22 @@ import { Button } from '@mui/material'
       control: {
         type: 'boolean'
       }
-    },
-    children: {
-      name: 'Text',
-      defaultValue: 'Button',
-      control: {
-        type: 'text'
-      }
     }
   }}
 />
 
-export const Template = (args) => <Button {...args} />
+export const Primary = (args) => <Button {...args} children={'Primary'} />
+export const Secondary = (args) => (
+  <Button color='secondary' {...args} children={'Secondary'} />
+)
 
-# Button
+# Examples
 
 <Canvas>
-  <Story name='Default'>{Template.bind({})}</Story>
+  <Story name='Primary'>{Primary.bind({})}</Story>
+  <Story name='Secondary'>{Secondary.bind({})}</Story>
 </Canvas>
 
 # Props
 
-<Props of={Button} />
+<ArgsTable of={Button} />
