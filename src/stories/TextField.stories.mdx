@@ -1,0 +1,61 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { TextField, InputAdornment } from '@mui/material'
+import AccountCircle from '@mui/icons-material/AccountCircle'
+
+<Meta
+  title='Inputs/TextField'
+  component={TextField}
+  argTypes={{
+    size: {
+      name: 'Size',
+      options: ['small', 'medium'],
+      control: {
+        type: 'inline-radio'
+      }
+    },
+    disabled: {
+      name: 'Disabled',
+      defaultValue: false,
+      control: {
+        type: 'boolean'
+      }
+    },
+    error: {
+      name: 'Error',
+      defaultValue: false,
+      control: {
+        type: 'boolean'
+      }
+    }
+  }}
+/>
+
+export const Default = (args) => (
+  <TextField label='Standard text field' {...args} helperText='Helper text' />
+)
+export const WithIcon = (args) => (
+  <TextField
+    label='Text field with icon'
+    {...args}
+    helperText='Helper text'
+    InputProps={{
+      endAdornment: (
+        <InputAdornment position='end'>
+          <AccountCircle />
+        </InputAdornment>
+      )
+    }}
+  />
+)
+
+# Examples
+
+<Canvas>
+  <Story name='Default'>{Default.bind({})}</Story>
+  <Story name='With Icon'>{WithIcon.bind({})}</Story>
+</Canvas>
+
+# Props
+
+<ArgsTable of={TextField} />

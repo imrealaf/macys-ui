@@ -1,10 +1,10 @@
-import * as macys from '../../src/themes/colors.macys'
+import { PrimaryColors } from '../../src/themes/macys/colors.macys'
 
 export default {
   base: 'light',
 
-  colorPrimary: macys.Colors.primary,
-  colorSecondary: macys.Colors.secondary,
+  colorPrimary: PrimaryColors.red,
+  colorSecondary: PrimaryColors.darkRed,
 
   // UI
   // appBg: 'white',
@@ -22,8 +22,8 @@ export default {
 
   // Toolbar default and active colors
   barTextColor: 'black',
-  barSelectedColor: macys.Colors.primary,
-  // barBg: macys.Colors.primary,
+  barSelectedColor: PrimaryColors.red,
+  // barBg: Colors.primary,
 
   // Form colors
   // inputBg: 'white',

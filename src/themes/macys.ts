@@ -1,41 +1,41 @@
 import { ThemeOptions } from '@mui/material'
 import spacing from '../theme/spacing'
 import { ShadowColor } from '../theme/shadows'
-import typography from './typography.macys'
-import {
-  Colors,
-  BackgroundColors,
-  ButtonColors,
-  ButtonTextColors,
-  TextColors,
-  ContrastTextColors
-} from './colors.macys'
+import typography from './macys/typography.macys'
+import { PrimaryColors } from './macys/colors.macys'
+
+import MuiOutlinedInput from './macys/input.macys'
+import MuiButton from './macys/button.macys'
+import MuiAlert from './macys/alert.macys'
+import MuiDialog from './macys/dialog.macys'
+import { MuiAccordion, MuiAccordionSummary } from './macys/accordion.macys'
 
 const themeConfig: ThemeOptions = {
   shape: {
-    borderRadius: 0
+    borderRadius: 5
   },
   palette: {
     background: {
-      paper: BackgroundColors.content,
-      default: BackgroundColors.chrome
+      paper: PrimaryColors.gray7,
+      default: PrimaryColors.white
     },
     text: {
-      primary: TextColors.default,
-      disabled: TextColors.disabled
+      primary: PrimaryColors.black,
+      disabled: PrimaryColors.gray2
     },
-    info: {
-      main: Colors.info
+    primary: {
+      main: PrimaryColors.red
+    },
+    secondary: {
+      main: PrimaryColors.darkRed
     },
     error: {
-      main: Colors.error
-    },
-    warning: {
-      main: Colors.important
+      main: PrimaryColors.red
     },
     success: {
-      main: Colors.success
-    }
+      main: PrimaryColors.green
+    },
+    divider: PrimaryColors.gray3
   },
   spacing,
   typography,
@@ -50,55 +50,17 @@ const themeConfig: ThemeOptions = {
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: BackgroundColors.component
+          backgroundColor: PrimaryColors.gray7
         }
       }
     },
-    MuiButton: {
-      defaultProps: {
-        variant: 'contained',
-        disableElevation: true
-      },
-      variants: [
-        {
-          props: { variant: 'contained', color: 'primary' },
-          style: {
-            backgroundColor: ButtonColors.active,
-            color: ButtonTextColors.active,
-            ':hover': {
-              backgroundColor: ButtonColors.hover
-            },
-            ':focus': {
-              backgroundColor: ButtonColors.focus
-            },
-            ':disabled': {
-              backgroundColor: ButtonColors.disabled,
-              color: ButtonTextColors.disabled
-            }
-          }
-        },
-        {
-          props: { variant: 'contained', color: 'secondary' },
-          style: {
-            backgroundColor: 'transparent',
-            border: `1px solid ${ButtonColors.active}`,
-            color: ButtonColors.active,
-            ':hover': {
-              borderColor: ContrastTextColors.low,
-              backgroundColor: ContrastTextColors.low
-            },
-            ':focus': {
-              borderColor: ContrastTextColors.low,
-              backgroundColor: ContrastTextColors.low
-            },
-            ':disabled': {
-              borderColor: ButtonColors.disabled,
-              color: ButtonTextColors.disabled
-            }
-          }
-        }
-      ]
-    }
+
+    MuiOutlinedInput,
+    MuiButton,
+    MuiAlert,
+    MuiDialog,
+    MuiAccordion,
+    MuiAccordionSummary
   }
 }
 

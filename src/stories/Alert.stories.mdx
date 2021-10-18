@@ -1,0 +1,43 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Alert, Box } from '@mui/material'
+
+<Meta
+  title='Feedback/Alert'
+  component={Alert}
+  decorators={[
+    (Story) => (
+      <Box>
+        <Story />
+      </Box>
+    )
+  ]}
+/>
+
+# Alerts
+
+<Canvas>
+  <Story name='Info'>
+    <Alert severity='info' variant='outlined'>
+      I’m telling you something here.
+    </Alert>
+  </Story>
+  <Story name='Success'>
+    <Alert severity='success' variant='outlined'>
+      You did something right.
+    </Alert>
+  </Story>
+  <Story name='Error'>
+    <Alert severity='error' variant='outlined'>
+      You did something wrong.
+    </Alert>
+  </Story>
+</Canvas>
+
+# General Message
+
+<Canvas>
+  <Story name='General'>
+    <Alert>I’m telling you something here.</Alert>
+  </Story>
+</Canvas>

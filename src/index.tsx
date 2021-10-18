@@ -1,5 +1,5 @@
 // Components
-export { ResponsiveDrawer, ResponsiveLayout } from 'components'
+export { Dialog, ResponsiveDrawer, ResponsiveLayout } from 'components'
 
 // Hooks
 export { useToggle, useToggleByAnchor, useBreakpoint } from 'hooks'

@@ -1,0 +1,113 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Typography } from '@mui/material'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+
+import { Accordion } from '../components'
+import { useAccordion } from '../hooks'
+
+<Meta
+  title='Surfaces/Accordion'
+  argTypes={{
+    size: {
+      name: 'Size',
+      options: ['sm', 'md', 'lg'],
+      control: {
+        type: 'inline-radio'
+      }
+    }
+  }}
+/>
+
+export const Default = (args) => (
+  <div>
+    <Accordion id='panel-1' title='Accordion 1' {...args}>
+      <Typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        malesuada lacus ex, sit amet blandit leo lobortis eget.
+      </Typography>
+    </Accordion>
+    <Accordion
+      id='panel-2'
+      title='Accordion 2'
+      subtitle='Item With A Subtitle'
+      {...args}
+    >
+      <Typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        malesuada lacus ex, sit amet blandit leo lobortis eget.
+      </Typography>
+    </Accordion>
+    <Accordion
+      id='panel-3'
+      title='Accordion 3'
+      subtitle='Item With A Subtitle On Two Lines'
+      {...args}
+    >
+      <Typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        malesuada lacus ex, sit amet blandit leo lobortis eget.
+      </Typography>
+    </Accordion>
+  </div>
+)
+
+export const Controlled = (args) => {
+  const { expanded, toggle } = useAccordion()
+  return (
+    <div>
+      <Accordion
+        id='panel-1'
+        expanded={expanded === 'panel-1'}
+        onChange={toggle('panel-1')}
+        title='Accordion 1'
+        {...args}
+      >
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          malesuada lacus ex, sit amet blandit leo lobortis eget.
+        </Typography>
+      </Accordion>
+      <Accordion
+        id='panel-2'
+        expanded={expanded === 'panel-2'}
+        onChange={toggle('panel-2')}
+        title='Accordion 2'
+        {...args}
+      >
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          malesuada lacus ex, sit amet blandit leo lobortis eget.
+        </Typography>
+      </Accordion>
+      <Accordion
+        id='panel-3'
+        expanded={expanded === 'panel-3'}
+        onChange={toggle('panel-3')}
+        title='Accordion 3'
+        {...args}
+      >
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          malesuada lacus ex, sit amet blandit leo lobortis eget.
+        </Typography>
+      </Accordion>
+    </div>
+  )
+}
+
+# Default example
+
+<Canvas>
+  <Story name='Default'>{Default.bind({})}</Story>
+</Canvas>
+
+# Controlled
+
+<Canvas>
+  <Story name='Controlled'>{Controlled.bind({})}</Story>
+</Canvas>
+
+# Props
+
+<ArgsTable of={Accordion} />

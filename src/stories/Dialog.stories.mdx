@@ -1,0 +1,40 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Dialog } from '../components'
+import CloseIcon from '@mui/icons-material/Close'
+
+<Meta
+  title='Feedback/Dialog'
+  argTypes={{
+    open: {
+      name: 'Open',
+      defaultValue: true,
+      control: {
+        type: 'boolean'
+      }
+    },
+    maxWidth: {
+      name: 'Max Width',
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      control: {
+        type: 'inline-radio'
+      }
+    }
+  }}
+/>
+
+export const Template = (args) => (
+  <Dialog title='Dialog Title' onClose={() => alert('closed')} {...args}>
+    Dialog content
+  </Dialog>
+)
+
+# Examples
+
+<Canvas>
+  <Story name='Default'>{Template.bind({})}</Story>
+</Canvas>
+
+# Props
+
+<ArgsTable of={Dialog} />

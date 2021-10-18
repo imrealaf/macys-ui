@@ -7,7 +7,7 @@ import {
   SwipeableDrawerProps
 } from '@mui/material'
 
-import { DrawerWidth } from 'theme/sizes'
+import { DrawerWidth } from '../theme/sizes'
 
 export interface IResponsiveDrawerProps extends SwipeableDrawerProps {
   children: React.ReactNode
