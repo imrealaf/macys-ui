@@ -14,10 +14,10 @@ export interface IUseToggle {
 }
 
 function useToggle(id: string = ''): IUseToggle {
-  const [open, setActive] = useState(false)
-  const show = () => setActive(true)
-  const hide = () => setActive(false)
-  const toggle = () => setActive(!open)
+  const [open, setOpen] = useState(false)
+  const show = () => setOpen(true)
+  const hide = () => setOpen(false)
+  const toggle = () => setOpen(!open)
 
   return {
     id,

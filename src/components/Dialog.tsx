@@ -11,7 +11,7 @@ import CloseIcon from '@mui/icons-material/Close'
 
 export interface IDialogProps extends DialogProps {
   // Hides the close button if needed
-  hideClose: boolean
+  hideClose?: boolean | undefined
 
   // Capability to change close icon
   closeIcon: React.ReactNode

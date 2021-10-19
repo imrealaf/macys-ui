@@ -1,0 +1,29 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { SearchField } from '../components'
+
+<Meta
+  title='Inputs/SearchField'
+  component={SearchField}
+  argTypes={{
+    size: {
+      name: 'Size',
+      options: ['small', 'medium'],
+      control: {
+        type: 'inline-radio'
+      }
+    }
+  }}
+/>
+
+export const Default = (args) => <SearchField {...args} />
+
+# Examples
+
+<Canvas>
+  <Story name='Default'>{Default.bind({})}</Story>
+</Canvas>
+
+# Props
+
+<ArgsTable of={SearchField} />

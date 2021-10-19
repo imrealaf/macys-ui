@@ -1,9 +1,8 @@
 import { ThemeOptions } from '@mui/material'
+
 import spacing from '../theme/spacing'
-import { ShadowColor } from '../theme/shadows'
 import typography from './macys/typography.macys'
 import { PrimaryColors } from './macys/colors.macys'
-
 import MuiOutlinedInput from './macys/input.macys'
 import MuiButton from './macys/button.macys'
 import MuiAlert from './macys/alert.macys'
@@ -14,6 +13,7 @@ const themeConfig: ThemeOptions = {
   shape: {
     borderRadius: 5
   },
+
   palette: {
     background: {
       paper: PrimaryColors.gray7,
@@ -37,24 +37,10 @@ const themeConfig: ThemeOptions = {
     },
     divider: PrimaryColors.gray3
   },
+
   spacing,
   typography,
   components: {
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          boxShadow: `0 0 15px ${ShadowColor}`
-        }
-      }
-    },
-    MuiDrawer: {
-      styleOverrides: {
-        paper: {
-          backgroundColor: PrimaryColors.gray7
-        }
-      }
-    },
-
     MuiOutlinedInput,
     MuiButton,
     MuiAlert,

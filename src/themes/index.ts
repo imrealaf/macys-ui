@@ -1,5 +1,1 @@
-import macys from './macys'
-
-export default {
-  macys
-}
+export { default as macys } from './macys'

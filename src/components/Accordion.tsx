@@ -12,7 +12,7 @@ import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 
 export interface IAccordionProps extends AccordionProps {
-  // The id to identify the item (used for accessibility)
+  // The id to identify the item (used mainly for accessibility)
   id: string
 
   // Accordion size (sm, lg)

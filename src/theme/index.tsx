@@ -1,21 +1,34 @@
 import React from 'react'
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material'
-import themes from '../themes'
 
+import * as themes from '../themes'
+
+/**
+ * MUI overrides
+ */
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
     tertiary: true
   }
 }
 
-type ThemeVariant = 'macys' | 'bloomingdales' // default macys theme (more tbd)
+export type ThemeVariant = 'macys' | 'bloomingdales' // default macys theme (more tbd)
 
-interface IThemeProps {
+export interface IThemeProps {
+  // The theme to laod
   variant: ThemeVariant
+
+  // Inlclude MUI CSS bassline
   withBaseline: boolean
+
+  // App
   children: React.ReactNode
 }
 
+/**
+ * Theme
+ * @description extended MUI Theme Provider to implement loaded theme
+ */
 function Theme({
   variant = 'macys',
   withBaseline = true,

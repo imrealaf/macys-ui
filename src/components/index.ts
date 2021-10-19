@@ -1,4 +1,3 @@
-export { IDialogProps, default as Dialog } from './Dialog'
-export { IAccordionProps, default as Accordion } from './Accordion'
-export { default as ResponsiveDrawer } from './ResponsiveDrawer'
-export { default as ResponsiveLayout } from './ResponsiveLayout'
+export { default as Dialog, IDialogProps } from './Dialog'
+export { default as Accordion, IAccordionProps } from './Accordion'
+export { default as SearchField, ISearchFieldProps } from './SearchField'
