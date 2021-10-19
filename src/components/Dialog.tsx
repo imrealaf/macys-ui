@@ -20,6 +20,11 @@ export interface IDialogProps extends DialogProps {
   actions?: React.ReactNode | undefined
 }
 
+/**
+ * Dialog
+ * @description extends MUI Dialog component which implements DialogTitle, DialogContent, DialogActions
+ * @implements <DialogTitle />, <DialogContent />, <DialogActions />
+ */
 function Dialog({
   title,
   actions,

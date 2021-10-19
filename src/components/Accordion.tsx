@@ -11,16 +11,6 @@ import {
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 
-export type SummaryVariant =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'body1'
-  | 'body2'
-
 export interface IAccordionProps extends AccordionProps {
   // The id to identify the item (used for accessibility)
   id: string
@@ -37,7 +27,8 @@ export interface IAccordionProps extends AccordionProps {
 
 /**
  * Accordion
- * @description an extension of the MUI Accordion component that adds customization and combines sub components
+ * @description extends MUI Accodrion component with added capability
+ * @implements <AccordionSummary />, <AccordionDetails />
  */
 function Accordion({
   id,
@@ -69,8 +60,7 @@ function Accordion({
 
   /**
    * getTitleProps
-   * @param size  - the size of the accordion
-   * @returns {Obejct}
+   * @description return typography props for title based on size
    */
   const getTitleProps = (size: string | undefined): TypographyProps => {
     let props: TypographyProps
@@ -99,6 +89,32 @@ function Accordion({
     return props
   }
 
+  /**
+   * getSubtitleProps
+   * @description return typography props for subtitle based on size
+   */
+  const getSubtitleProps = (size: string | undefined): TypographyProps => {
+    let props: TypographyProps = {
+      sx: {
+        position: 'absolute',
+        right: theme.spacing(5),
+        top: '50%',
+        transform: 'translateY(-50%)',
+        width: '140px'
+      }
+    }
+    switch (size) {
+      default:
+        props = {
+          ...props,
+          variant: 'body2',
+          color: 'gray'
+        }
+        break
+    }
+    return props
+  }
+
   return (
     <MuiAccordion defaultExpanded={defaultExpanded} {...props}>
       <AccordionSummary
@@ -108,19 +124,7 @@ function Accordion({
       >
         <Typography {...getTitleProps(size)}>{title}</Typography>
         {subtitle && (
-          <Typography
-            variant='body2'
-            color='gray'
-            sx={{
-              position: 'absolute',
-              right: theme.spacing(5),
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: '140px'
-            }}
-          >
-            {subtitle}
-          </Typography>
+          <Typography {...getSubtitleProps(size)}>{subtitle}</Typography>
         )}
       </AccordionSummary>
       <AccordionDetails>{children}</AccordionDetails>
