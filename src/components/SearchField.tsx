@@ -30,15 +30,25 @@ const StyledInput = styled(Input)<InputProps>(({ theme }) => ({
   minWidth: '247px',
   borderRadius: '63px',
   padding: '0 4px 0 12px',
+  transition: 'all .2s ease',
+
   // Remove border
   '&::before, &::after': {
     border: 'none !important'
   },
-  // Placeholder styles
+
+  // Hover state
+  ':hover': {},
+
+  // Focus state
+  '&.Mui-focused': {},
+
+  // Placeholder
   '& .MuiInput-input::placeholder': {
     opacity: 1,
     color: theme.palette.gray1.main
   },
+
   // Icon buttons
   '& .MuiIconButton-root': {
     ':hover': {
@@ -66,6 +76,7 @@ function SearchField({
    * When value is updated ..
    */
   useEffect(() => {
+    // Show reset button if value has any value
     if (value && value.length) {
       setShowReset(true)
     } else {
@@ -106,6 +117,7 @@ function SearchField({
         }
         endAdornment={renderEndAdornment()}
       />
+
       {/* Cancel action (only renders if `onClickCancel` callback is provided) */}
       {onClickCancel && (
         <Button
