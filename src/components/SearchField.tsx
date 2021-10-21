@@ -5,8 +5,7 @@ import {
   InputProps,
   InputAdornment,
   Button,
-  IconButton,
-  Fade
+  IconButton
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import SearchIcon from '@mui/icons-material/Search'
@@ -16,7 +15,7 @@ import { useStyles } from '../hooks'
 
 export interface ISearchFieldProps extends InputProps {
   value: string | null
-  action?: React.ReactElement | undefined
+  action?: React.ReactNode | undefined
   onReset?(): void
   onClickCancel?(): void
 }
@@ -51,8 +50,10 @@ const StyledInput = styled(Input)<InputProps>(({ theme }) => ({
 
   // Icon buttons
   '& .MuiIconButton-root': {
+    transition: 'all .2s ease',
     ':hover': {
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
+      color: theme.palette.common.black
     }
   }
 }))
@@ -92,11 +93,9 @@ function SearchField({
     return (
       <InputAdornment position='end'>
         {showReset ? (
-          <Fade in={showReset}>
-            <IconButton onClick={onReset}>
-              <CancelIcon />
-            </IconButton>
-          </Fade>
+          <IconButton onClick={onReset}>
+            <CancelIcon />
+          </IconButton>
         ) : (
           action && action
         )}
@@ -112,7 +111,7 @@ function SearchField({
         onChange={onChange}
         startAdornment={
           <InputAdornment position='start'>
-            <SearchIcon />
+            <SearchIcon sx={{ cursor: 'default' }} />
           </InputAdornment>
         }
         endAdornment={renderEndAdornment()}
