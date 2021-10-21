@@ -1,0 +1,24 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Checkbox, FormControl, FormControlLabel } from '@mui/material'
+
+<Meta title='Inputs/Checkboxes' />
+
+export const Basic = (args) => (
+  <FormControl component='fieldset'>
+    <FormControlLabel control={<Checkbox defaultChecked />} label='Label' />
+    <FormControlLabel control={<Checkbox />} label='Label' />
+    <FormControlLabel disabled control={<Checkbox />} label='Label' />
+    <FormControlLabel disabled checked control={<Checkbox />} label='Label' />
+  </FormControl>
+)
+
+# Basic checkboxes
+
+<Canvas>
+  <Story name='Basic'>{Basic.bind({})}</Story>
+</Canvas>
+
+# Props
+
+<ArgsTable of={Checkbox} />

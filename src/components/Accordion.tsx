@@ -3,11 +3,13 @@ import {
   Accordion as MuiAccordion,
   AccordionProps,
   AccordionSummary,
+  AccordionSummaryProps,
   AccordionDetails,
   Typography,
   TypographyProps,
   useTheme
 } from '@mui/material'
+import { styled } from '@mui/material/styles'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 
@@ -24,6 +26,32 @@ export interface IAccordionProps extends AccordionProps {
   // Populates subtitle in summary component
   subtitle?: string | undefined
 }
+
+/**
+ * Wrapped Summary with styling
+ */
+const StyledAccordion = styled(MuiAccordion)<AccordionProps>(({ theme }) => ({
+  ':before': {
+    backgroundColor: theme.palette.gray3.main
+  },
+  '&.Mui-expanded:before': {
+    opacity: 1
+  },
+  '&.Mui-expanded': {
+    margin: 0
+  }
+}))
+
+/**
+ * Wrapped Summary with styling
+ */
+const StyledSummary = styled(AccordionSummary)<AccordionSummaryProps>(
+  ({ theme }) => ({
+    '&.Mui-expanded': {
+      minHeight: '60px'
+    }
+  })
+)
 
 /**
  * Accordion
@@ -116,8 +144,8 @@ function Accordion({
   }
 
   return (
-    <MuiAccordion defaultExpanded={defaultExpanded} {...props}>
-      <AccordionSummary
+    <StyledAccordion defaultExpanded={defaultExpanded} {...props}>
+      <StyledSummary
         id={`${id}-header`}
         aria-controls={`${id}-content`}
         expandIcon={icon}
@@ -126,9 +154,9 @@ function Accordion({
         {subtitle && (
           <Typography {...getSubtitleProps(size)}>{subtitle}</Typography>
         )}
-      </AccordionSummary>
+      </StyledSummary>
       <AccordionDetails>{children}</AccordionDetails>
-    </MuiAccordion>
+    </StyledAccordion>
   )
 }
 

@@ -8,6 +8,8 @@ import MuiButton from './macys/button.macys'
 import MuiAlert from './macys/alert.macys'
 import MuiDialog from './macys/dialog.macys'
 import { MuiAccordion, MuiAccordionSummary } from './macys/accordion.macys'
+import MuiRadio from './macys/radio.macys'
+import MuiCheckbox from './macys/checkbox.macys'
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -90,7 +92,9 @@ const themeConfig: ThemeOptions = {
     MuiAlert,
     MuiDialog,
     MuiAccordion,
-    MuiAccordionSummary
+    MuiAccordionSummary,
+    MuiRadio,
+    MuiCheckbox
   }
 }
 

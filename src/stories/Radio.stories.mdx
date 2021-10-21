@@ -1,0 +1,58 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import {
+  Radio,
+  RadioGroup,
+  FormControl,
+  FormControlLabel,
+  FormLabel
+} from '@mui/material'
+import AccountCircle from '@mui/icons-material/AccountCircle'
+
+<Meta title='Inputs/Radio Buttons' />
+
+export const Vertical = (args) => (
+  <FormControl component='fieldset'>
+    <RadioGroup defaultValue='item-1' name='radio-buttons-group'>
+      <FormControlLabel value='item-1' control={<Radio />} label='Item 1' />
+      <FormControlLabel value='item-2' control={<Radio />} label='Item 2' />
+      <FormControlLabel
+        value='item-3'
+        control={<Radio />}
+        label='Item 3'
+        disabled
+      />
+    </RadioGroup>
+  </FormControl>
+)
+
+export const Horizontal = (args) => (
+  <FormControl component='fieldset'>
+    <RadioGroup row defaultValue='item-1' name='radio-buttons-group'>
+      <FormControlLabel value='item-1' control={<Radio />} label='Item 1' />
+      <FormControlLabel value='item-2' control={<Radio />} label='Item 2' />
+      <FormControlLabel
+        value='item-3'
+        control={<Radio />}
+        label='Item 3'
+        disabled
+      />
+    </RadioGroup>
+  </FormControl>
+)
+
+# Default example
+
+<Canvas>
+  <Story name='Vertical'>{Vertical.bind({})}</Story>
+</Canvas>
+
+# Horizontal example
+
+<Canvas>
+  <Story name='Horizontal'>{Horizontal.bind({})}</Story>
+</Canvas>
+
+# Props
+
+<ArgsTable of={Radio} />

@@ -1,0 +1,35 @@
+import { useState } from 'react'
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { IconButton } from '@mui/material'
+import CropFreeIcon from '@mui/icons-material/CropFree'
+
+import { QuantitySelector } from '../components'
+
+<Meta title='Inputs/QuantitySelector' />
+
+export const Default = (args) => {
+  const [value, setValue] = useState(0)
+  const handleChange = (e) => setValue(e.target.value)
+  const onIncrease = () => setValue(value + 1)
+  const onDecrease = () => setValue(value - 1)
+  return (
+    <QuantitySelector
+      {...args}
+      value={value}
+      onChange={handleChange}
+      onDecrease={onDecrease}
+      onIncrease={onIncrease}
+    />
+  )
+}
+
+# Default Example
+
+<Canvas>
+  <Story name='Default'>{Default.bind({})}</Story>
+</Canvas>
+
+# Props
+
+<ArgsTable of={QuantitySelector} />
