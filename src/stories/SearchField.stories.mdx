@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { action } from '@storybook/addon-actions'
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { IconButton } from '@mui/material'
+import CropFreeIcon from '@mui/icons-material/CropFree'
+
 import { SearchField } from '../components'
 
 <Meta
   title='Inputs/SearchField'
-  component={SearchField}
   argTypes={{
     size: {
       name: 'Size',
@@ -16,12 +19,100 @@ import { SearchField } from '../components'
   }}
 />
 
-export const Default = (args) => <SearchField {...args} />
+export const Default = (args) => {
+  const [value, setValue] = useState('')
+  const handleReset = () => setValue('')
+  const handleChange = (e) => setValue(e.target.value)
+  return (
+    <SearchField
+      {...args}
+      onReset={handleReset}
+      value={value}
+      onChange={handleChange}
+    />
+  )
+}
 
-# Examples
+export const WithAction = (args) => {
+  const [value, setValue] = useState('')
+  const handleReset = () => setValue('')
+  const handleChange = (e) => setValue(e.target.value)
+  return (
+    <SearchField
+      {...args}
+      onReset={handleReset}
+      value={value}
+      onChange={handleChange}
+      action={
+        <IconButton onClick={() => alert('Clicked action')}>
+          <CropFreeIcon />
+        </IconButton>
+      }
+    />
+  )
+}
+
+export const WithCancel = (args) => {
+  const [value, setValue] = useState('')
+  const handleReset = () => setValue('')
+  const handleChange = (e) => setValue(e.target.value)
+  return (
+    <SearchField
+      {...args}
+      onReset={handleReset}
+      value={value}
+      onChange={handleChange}
+      onClickCancel={() => alert('Clicked cancel')}
+    />
+  )
+}
+
+export const KitchenSink = (args) => {
+  const [value, setValue] = useState('')
+  const handleReset = () => setValue('')
+  const handleChange = (e) => setValue(e.target.value)
+  return (
+    <SearchField
+      {...args}
+      onReset={handleReset}
+      value={value}
+      onChange={handleChange}
+      action={
+        <IconButton onClick={() => alert('Clicked action')}>
+          <CropFreeIcon />
+        </IconButton>
+      }
+      onClickCancel={() => alert('Clicked cancel')}
+    />
+  )
+}
+
+# Default Example
 
 <Canvas>
   <Story name='Default'>{Default.bind({})}</Story>
+</Canvas>
+
+# With Action Example
+
+The `action` property can be used to add an action element that will be visible when the field value is empty. For this example, an `<IconButton />` is used.
+
+<Canvas>
+  <Story name='With Action'>{WithAction.bind({})}</Story>
+</Canvas>
+
+# With Cancel Example
+
+The `onCancel` callback function enables a clickable cancel button to be rendered beside the field
+
+<Canvas>
+  <Story name='With Cancel'>{WithCancel.bind({})}</Story>
+</Canvas>
+
+# Kitchen Sink
+
+<Canvas>
+  <Story name='Kitchen Sink'>{KitchenSink.bind({})}</Story>
 </Canvas>
 
 # Props

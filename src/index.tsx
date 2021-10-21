@@ -2,7 +2,13 @@
 export { Dialog, Accordion } from 'components'
 
 // Hooks
-export { useToggle, useToggleByAnchor, useBreakpoint } from 'hooks'
+export {
+  useToggle,
+  useToggleByAnchor,
+  useBreakpoint,
+  useAccordion,
+  useStyles
+} from 'hooks'
 
 // Theme
 export { AppBarHeight, DrawerWidth } from 'theme/sizes'

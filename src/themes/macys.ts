@@ -9,6 +9,27 @@ import MuiAlert from './macys/alert.macys'
 import MuiDialog from './macys/dialog.macys'
 import { MuiAccordion, MuiAccordionSummary } from './macys/accordion.macys'
 
+declare module '@mui/material/styles' {
+  interface Palette {
+    gray1: Palette['primary']
+    gray2: Palette['primary']
+    gray3: Palette['primary']
+    gray4: Palette['primary']
+    gray5: Palette['primary']
+    gray6: Palette['primary']
+    gray7: Palette['primary']
+  }
+  interface PaletteOptions {
+    gray1: PaletteOptions['primary']
+    gray2: PaletteOptions['primary']
+    gray3: PaletteOptions['primary']
+    gray4: PaletteOptions['primary']
+    gray5: PaletteOptions['primary']
+    gray6: PaletteOptions['primary']
+    gray7: PaletteOptions['primary']
+  }
+}
+
 const themeConfig: ThemeOptions = {
   shape: {
     borderRadius: 5
@@ -35,7 +56,30 @@ const themeConfig: ThemeOptions = {
     success: {
       main: PrimaryColors.green
     },
-    divider: PrimaryColors.gray3
+    divider: PrimaryColors.gray3,
+
+    // Grays
+    gray1: {
+      main: PrimaryColors.gray1
+    },
+    gray2: {
+      main: PrimaryColors.gray2
+    },
+    gray3: {
+      main: PrimaryColors.gray3
+    },
+    gray4: {
+      main: PrimaryColors.gray4
+    },
+    gray5: {
+      main: PrimaryColors.gray5
+    },
+    gray6: {
+      main: PrimaryColors.gray6
+    },
+    gray7: {
+      main: PrimaryColors.gray7
+    }
   },
 
   spacing,
