@@ -34,24 +34,22 @@ const StyledAccordion = styled(MuiAccordion)<AccordionProps>(({ theme }) => ({
   ':before': {
     backgroundColor: theme.palette.gray3.main
   },
-  '&.Mui-expanded:before': {
-    opacity: 1
-  },
   '&.Mui-expanded': {
-    margin: 0
+    margin: 0,
+    '&:before': {
+      opacity: 1
+    }
   }
 }))
 
 /**
  * Wrapped Summary with styling
  */
-const StyledSummary = styled(AccordionSummary)<AccordionSummaryProps>(
-  ({ theme }) => ({
-    '&.Mui-expanded': {
-      minHeight: '60px'
-    }
-  })
-)
+const StyledSummary = styled(AccordionSummary)<AccordionSummaryProps>(() => ({
+  '&.Mui-expanded': {
+    minHeight: '60px'
+  }
+}))
 
 /**
  * Accordion
@@ -155,7 +153,7 @@ function Accordion({
           <Typography {...getSubtitleProps(size)}>{subtitle}</Typography>
         )}
       </StyledSummary>
-      <AccordionDetails>{children}</AccordionDetails>
+      <AccordionDetails sx={{ pt: 0 }}>{children}</AccordionDetails>
     </StyledAccordion>
   )
 }
