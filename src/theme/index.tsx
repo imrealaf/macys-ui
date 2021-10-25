@@ -12,6 +12,25 @@ declare module '@mui/material/Button' {
   }
 }
 
+export type ThemeColor =
+  | 'inherit'
+  | 'primary'
+  | 'error'
+  | 'secondary'
+  | 'success'
+  | 'info'
+  | 'warning'
+  | 'tertiary'
+  | 'black'
+  | 'gray1'
+  | 'gray2'
+  | 'gray3'
+  | 'gray4'
+  | 'gray5'
+  | 'gray6'
+  | 'gray7'
+  | undefined
+
 export type ThemeVariant = 'macys' | 'bloomingdales' // default macys theme (more tbd)
 
 export interface IThemeProps {

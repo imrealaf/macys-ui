@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Typography, Box, Button } from '@mui/material'
 import { Dialog } from '../components'
 import CloseIcon from '@mui/icons-material/Close'
 
@@ -9,6 +10,13 @@ import CloseIcon from '@mui/icons-material/Close'
     open: {
       name: 'Open',
       defaultValue: true,
+      control: {
+        type: 'boolean'
+      }
+    },
+    fullScreen: {
+      name: 'Fullscreen',
+      defaultValue: false,
       control: {
         type: 'boolean'
       }
@@ -23,16 +31,94 @@ import CloseIcon from '@mui/icons-material/Close'
   }}
 />
 
-export const Template = (args) => (
+export const WithTitle = (args) => (
   <Dialog title='Dialog Title' onClose={() => alert('closed')} {...args}>
-    Dialog content
+    <Typography>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue
+      neque at libero dictum commodo. Morbi cursus eu turpis et sagittis. Nulla
+      sapien tellus, auctor et hendrerit id, dignissim eget nisl.
+    </Typography>
+  </Dialog>
+)
+
+export const WithoutTitle = (args) => (
+  <Dialog onClose={() => alert('closed')} {...args}>
+    <Typography>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue
+      neque at libero dictum commodo. Morbi cursus eu turpis et sagittis. Nulla
+      sapien tellus, auctor et hendrerit id, dignissim eget nisl.
+    </Typography>
+  </Dialog>
+)
+
+export const WithScrolling = (args) => (
+  <Dialog title='Dialog Title' onClose={() => alert('closed')} {...args}>
+    <Typography sx={{ mb: 2 }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue
+      neque at libero dictum commodo. Morbi cursus eu turpis et sagittis. Nulla
+      sapien tellus, auctor et hendrerit id, dignissim eget nisl. Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Morbi congue neque at libero
+      dictum commodo. Morbi cursus eu turpis et sagittis. Nulla sapien tellus,
+      auctor et hendrerit id, dignissim eget nisl.
+    </Typography>
+    <Typography sx={{ mb: 2 }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue
+      neque at libero dictum commodo. Morbi cursus eu turpis et sagittis. Nulla
+      sapien tellus, auctor et hendrerit id, dignissim eget nisl. Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Morbi congue neque at libero
+      dictum commodo. Morbi cursus eu turpis et sagittis. Nulla sapien tellus,
+      auctor et hendrerit id, dignissim eget nisl.
+    </Typography>
+    <Typography sx={{ mb: 2 }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue
+      neque at libero dictum commodo. Morbi cursus eu turpis et sagittis. Nulla
+      sapien tellus, auctor et hendrerit id, dignissim eget nisl. Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Morbi congue neque at libero
+      dictum commodo. Morbi cursus eu turpis et sagittis. Nulla sapien tellus,
+      auctor et hendrerit id, dignissim eget nisl.
+    </Typography>
+    <Typography sx={{ mb: 2 }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue
+      neque at libero dictum commodo. Morbi cursus eu turpis et sagittis. Nulla
+      sapien tellus, auctor et hendrerit id, dignissim eget nisl. Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Morbi congue neque at libero
+      dictum commodo. Morbi cursus eu turpis et sagittis. Nulla sapien tellus,
+      auctor et hendrerit id, dignissim eget nisl.
+    </Typography>
+    <Typography sx={{ mb: 2 }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue
+      neque at libero dictum commodo. Morbi cursus eu turpis et sagittis. Nulla
+      sapien tellus, auctor et hendrerit id, dignissim eget nisl. Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Morbi congue neque at libero
+      dictum commodo. Morbi cursus eu turpis et sagittis. Nulla sapien tellus,
+      auctor et hendrerit id, dignissim eget nisl.
+    </Typography>
+  </Dialog>
+)
+
+export const WithActions = (args) => (
+  <Dialog
+    title='With Action Example'
+    onClose={() => alert('closed')}
+    {...args}
+    actions={
+      <Box>
+        <Button color='secondary'>Cancel</Button>
+        <Button sx={{ ml: 1 }}>Confirm</Button>
+      </Box>
+    }
+  >
+    <Typography>Do you really want to do this?</Typography>
   </Dialog>
 )
 
 # Examples
 
 <Canvas>
-  <Story name='Default'>{Template.bind({})}</Story>
+  <Story name='With Title'>{WithTitle.bind({})}</Story>
+  <Story name='Without Title'>{WithoutTitle.bind({})}</Story>
+  <Story name='With Scrolling'>{WithScrolling.bind({})}</Story>
+  <Story name='With Actions'>{WithActions.bind({})}</Story>
 </Canvas>
 
 # Props

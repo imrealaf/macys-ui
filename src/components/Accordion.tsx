@@ -10,8 +10,9 @@ import {
   useTheme
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import AddIcon from '@mui/icons-material/Add'
-import RemoveIcon from '@mui/icons-material/Remove'
+
+import PlusIcon from '../icons/PlusIcon'
+import MinusIcon from '../icons/MinusIcon'
 
 export interface IAccordionProps extends AccordionProps {
   // The id to identify the item (used mainly for accessibility)
@@ -82,7 +83,7 @@ function Accordion({
     : { expanded: isExpanded, onChange: handleChange }
 
   // Switch icon based on expanded state
-  const icon = props.expanded ? <RemoveIcon /> : <AddIcon />
+  const icon = props.expanded ? <MinusIcon /> : <PlusIcon />
 
   /**
    * getTitleProps

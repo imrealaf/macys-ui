@@ -8,10 +8,10 @@ import {
   IconButton
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import SearchIcon from '@mui/icons-material/Search'
-import CancelIcon from '@mui/icons-material/Cancel'
 
 import { useStyles } from '../hooks'
+import SearchIcon from '../icons/SearchIcon'
+import ClearFilledIcon from '../icons/ClearFilledIcon'
 
 export interface ISearchFieldProps extends InputProps {
   value: string | null
@@ -30,24 +30,19 @@ const StyledInput = styled(Input)<InputProps>(({ theme }) => ({
   borderRadius: '63px',
   padding: '0 4px 0 12px',
   transition: 'all .2s ease',
-
   // Remove border
   '&::before, &::after': {
     border: 'none !important'
   },
-
   // Hover state
   ':hover': {},
-
   // Focus state
   '&.Mui-focused': {},
-
   // Placeholder
   '& .MuiInput-input::placeholder': {
     opacity: 1,
     color: theme.palette.gray1.main
   },
-
   // Icon buttons
   '& .MuiIconButton-root': {
     transition: 'all .2s ease',
@@ -94,7 +89,7 @@ function SearchField({
       <InputAdornment position='end'>
         {showReset ? (
           <IconButton onClick={onReset}>
-            <CancelIcon />
+            <ClearFilledIcon />
           </IconButton>
         ) : (
           action && action
@@ -111,12 +106,11 @@ function SearchField({
         onChange={onChange}
         startAdornment={
           <InputAdornment position='start'>
-            <SearchIcon sx={{ cursor: 'default' }} />
+            <SearchIcon />
           </InputAdornment>
         }
         endAdornment={renderEndAdornment()}
       />
-
       {/* Cancel action (only renders if `onClickCancel` callback is provided) */}
       {onClickCancel && (
         <Button

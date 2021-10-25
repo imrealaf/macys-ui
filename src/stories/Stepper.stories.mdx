@@ -1,0 +1,22 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Stepper, Step } from '@mui/material'
+
+<Meta title='Inputs/Stepper' />
+
+# Examples
+
+<Canvas>
+  <Story name='Default'>
+    <Stepper active={2}>
+      <Step>Step 1</Step>
+      <Step>Step 2</Step>
+      <Step>Step 3</Step>
+      <Step>Step 4</Step>
+    </Stepper>
+  </Story>
+</Canvas>
+
+# Props
+
+<ArgsTable of={Button} />

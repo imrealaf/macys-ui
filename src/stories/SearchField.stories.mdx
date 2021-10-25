@@ -5,6 +5,7 @@ import { IconButton } from '@mui/material'
 import CropFreeIcon from '@mui/icons-material/CropFree'
 
 import { SearchField } from '../components'
+import ScanIcon from '../icons/ScanIcon'
 
 <Meta title='Inputs/SearchField' />
 
@@ -34,7 +35,7 @@ export const WithAction = (args) => {
       onChange={handleChange}
       action={
         <IconButton onClick={() => alert('Clicked action')}>
-          <CropFreeIcon />
+          <ScanIcon />
         </IconButton>
       }
     />
@@ -68,7 +69,7 @@ export const KitchenSink = (args) => {
       onChange={handleChange}
       action={
         <IconButton onClick={() => alert('Clicked action')}>
-          <CropFreeIcon />
+          <ScanIcon />
         </IconButton>
       }
       onClickCancel={() => alert('Clicked cancel')}

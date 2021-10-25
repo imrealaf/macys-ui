@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Box,
-  Input,
-  InputProps,
-  InputAdornment,
-  IconButton
-} from '@mui/material'
+import { Input, InputProps, InputAdornment, IconButton } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
@@ -28,6 +22,7 @@ const StyledInput = styled(Input)<InputProps>(({ theme }) => ({
   border: `1px solid ${theme.palette.gray2.main}`,
   borderRadius: '5px',
   width: `${size * 3}px`,
+  // Hides native number field controls
   '-moz-appearance': 'textfield',
   '& .MuiInput-input::-webkit-outer-spin-button, & .MuiInput-input::-webkit-inner-spin-button':
     {
@@ -37,6 +32,7 @@ const StyledInput = styled(Input)<InputProps>(({ theme }) => ({
   '&::before, &::after': {
     border: 'none !important'
   },
+  // Buttons styling
   '& .MuiInputAdornment-positionStart .MuiIconButton-root': {
     borderRight: `1px solid ${theme.palette.gray2.main}`
   },
@@ -64,6 +60,7 @@ function QuantitySelector({
   onIncrease = () => {},
   onDecrease = () => {}
 }: IQuantitySelectorProps) {
+  // Define input props to pass
   const inputProps: Record<string, any> = {
     type: 'number',
     min,
@@ -71,37 +68,39 @@ function QuantitySelector({
     step
   }
 
+  /**
+   * handleKeyPress
+   * @description Filters out any unwanted characters when typing in the input
+   * @param e - the event object
+   */
   const handleKeyPress: React.KeyboardEventHandler = (e) => {
     const target = e.target as HTMLInputElement
     const value = target.value
-    console.log(e.key)
     if (value.length >= 2 || e.key === '-') e.preventDefault()
   }
 
   return (
-    <Box>
-      <StyledInput
-        type='number'
-        value={value}
-        onChange={onChange}
-        inputProps={inputProps}
-        onKeyPress={handleKeyPress}
-        startAdornment={
-          <InputAdornment position='start'>
-            <IconButton onClick={onDecrease} disabled={value === min}>
-              <RemoveIcon />
-            </IconButton>
-          </InputAdornment>
-        }
-        endAdornment={
-          <InputAdornment position='end'>
-            <IconButton onClick={onIncrease}>
-              <AddIcon />
-            </IconButton>
-          </InputAdornment>
-        }
-      />
-    </Box>
+    <StyledInput
+      type='number'
+      value={value}
+      onChange={onChange}
+      inputProps={inputProps}
+      onKeyPress={handleKeyPress}
+      startAdornment={
+        <InputAdornment position='start'>
+          <IconButton onClick={onDecrease} disabled={value === min}>
+            <RemoveIcon />
+          </IconButton>
+        </InputAdornment>
+      }
+      endAdornment={
+        <InputAdornment position='end'>
+          <IconButton onClick={onIncrease}>
+            <AddIcon />
+          </IconButton>
+        </InputAdornment>
+      }
+    />
   )
 }
 

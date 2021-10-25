@@ -1,0 +1,20 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { RadioGroup } from '@mui/material'
+import { SelectionTile } from '../components'
+
+<Meta title='Inputs/Selection Tiles' />
+
+# Default
+
+<Canvas>
+  <Story name='Default'>
+    <RadioGroup row aria-label='example1' name='example1'>
+      <SelectionTile label='Size' value='1' />
+      <SelectionTile label='Size' sublabel='Subtext' value='2' />
+      <SelectionTile label='Size' value='3' disabled />
+    </RadioGroup>
+  </Story>
+</Canvas>
+
+# Props

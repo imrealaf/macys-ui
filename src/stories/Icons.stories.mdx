@@ -1,0 +1,54 @@
+import { action } from '@storybook/addon-actions'
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { Button } from '@mui/material'
+import ScanIcon from '../icons/ScanIcon'
+
+<Meta
+  title='Data Display/Icons'
+  argTypes={{
+    size: {
+      name: 'Size',
+      options: ['small', 'medium', 'large'],
+      control: {
+        type: 'inline-radio'
+      }
+    },
+    color: {
+      name: 'Disabled',
+      defaultValue: 'black',
+      options: [
+        'inherit',
+        'primary',
+        'error',
+        'secondary',
+        'success',
+        'info',
+        'warning',
+        'tertiary',
+        'black',
+        'gray1',
+        'gray2',
+        'gray3',
+        'gray4',
+        'gray5',
+        'gray6',
+        'gray7'
+      ],
+      control: {
+        type: 'inline-radio'
+      }
+    }
+  }}
+/>
+
+export const Base = (args) => <ScanIcon {...args} />
+
+# Examples
+
+<Canvas>
+  <Story name='Base'>{Base.bind({})}</Story>
+</Canvas>
+
+# Props
+
+<ArgsTable of={Button} />

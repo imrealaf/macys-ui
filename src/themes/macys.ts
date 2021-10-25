@@ -20,6 +20,7 @@ declare module '@mui/material/styles' {
     gray5: Palette['primary']
     gray6: Palette['primary']
     gray7: Palette['primary']
+    black: Palette['primary']
   }
   interface PaletteOptions {
     gray1: PaletteOptions['primary']
@@ -29,6 +30,7 @@ declare module '@mui/material/styles' {
     gray5: PaletteOptions['primary']
     gray6: PaletteOptions['primary']
     gray7: PaletteOptions['primary']
+    black: PaletteOptions['primary']
   }
 }
 
@@ -81,6 +83,9 @@ const themeConfig: ThemeOptions = {
     },
     gray7: {
       main: PrimaryColors.gray7
+    },
+    black: {
+      main: PrimaryColors.black
     }
   },
 

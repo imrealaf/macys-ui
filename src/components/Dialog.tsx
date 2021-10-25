@@ -37,25 +37,23 @@ function Dialog({
 }: IDialogProps) {
   return (
     <MuiDialog open={open} {...rest}>
-      {title && (
-        <DialogTitle>
-          {title}
-          {/* Conditionally render close button */}
-          {onClose && !hideClose && (
-            <IconButton
-              aria-label='close'
-              onClick={() => onClose({}, 'backdropClick')}
-              sx={{
-                position: 'absolute',
-                right: 8,
-                top: 8
-              }}
-            >
-              {closeIcon}
-            </IconButton>
-          )}
-        </DialogTitle>
-      )}
+      <DialogTitle>
+        {title && title}
+        {/* Conditionally render close button */}
+        {onClose && !hideClose && (
+          <IconButton
+            aria-label='close'
+            onClick={() => onClose({}, 'backdropClick')}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 8
+            }}
+          >
+            {closeIcon}
+          </IconButton>
+        )}
+      </DialogTitle>
       <DialogContent>{children}</DialogContent>
       {actions && <DialogActions>{actions}</DialogActions>}
     </MuiDialog>
